@@ -1,6 +1,7 @@
 var express = require('express')
 var cookieParser = require('cookie-parser')
 var logger = require('morgan')
+const mongoose = require('mongoose')
 
 var apiRouter = require('./routes/api')
 
@@ -8,6 +9,16 @@ var app = express()
 
 // TODO: Lock this down to localhost and dev.embrycode.com
 const ALLOWED_ORIGIN = '*'
+
+mongoose.connect('mongodb://localhost/thePeterssonCollection', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+const db = mongoose.connection
+db.on('error', console.error.bind(console, 'connection error:'))
+db.once('open', function () {
+  console.log('Connected to database')
+})
 
 app.use(logger('dev'))
 app.use(express.json())
