@@ -9,6 +9,8 @@ const apiRouter = require('./routes/api')
 const ALLOWED_ORIGIN = '*'
 const DATABASE_URL =
   'mongodb://ec2-3-140-191-80.us-east-2.compute.amazonaws.com'
+const DATABASE_USER = 'root'
+const DATABASE_PASS = 'ydDJdvZwgrL7' // TODO: Not this
 
 const app = express()
 
@@ -16,6 +18,8 @@ const app = express()
 mongoose.connect(`${DATABASE_URL}/thePeterssonCollection`, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+  user: DATABASE_USER,
+  pass: DATABASE_PASS,
 })
 const db = mongoose.connection
 db.on('error', console.error.bind(console, 'connection error:'))
