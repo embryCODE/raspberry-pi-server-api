@@ -2,19 +2,21 @@
 
 HOST=pi@67.177.189.251
 
-ssh $HOST << EOF
-  printf "\nLogged into host. Navigating to backend directory..."
-  cd /var/www/dev.embrycode.com/backend
+printf "Logging into host...\n"
 
-  printf "\n\nPulling from GitHub...\n"
+ssh $HOST << EOF
+  printf "\nLogged into host.\n"
+
+  printf "\nPulling from GitHub...\n"
+  cd /var/www/dev.embrycode.com/backend
   git pull
 
   printf "\nInstalling dependencies...\n"
   NODE_ENV=production
   npm i
 
-  printf "\nStarting server...\n"
-  pm2 start npm --name "raspberry-pi-server-api" -- start
+  printf "Reloading server...\n"
+  pm2 reload raspberry-pi-server-api
 
   printf "\nSuccess. Exiting..."
   exit
