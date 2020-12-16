@@ -9,8 +9,8 @@ const apiRouter = require('./routes/api')
 const ALLOWED_ORIGIN = '*'
 const DATABASE_URL =
   'mongodb://ec2-3-140-191-80.us-east-2.compute.amazonaws.com'
-const DATABASE_USER = 'root'
-const DATABASE_PASS = 'ydDJdvZwgrL7' // TODO: Not this
+const DATABASE_USER = 'mason'
+const DATABASE_PASS = '1234' // TODO: Not this
 
 const app = express()
 
