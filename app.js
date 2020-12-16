@@ -7,11 +7,13 @@ const apiRouter = require('./routes/api')
 // Constants
 // TODO: Lock this down to localhost and dev.embrycode.com
 const ALLOWED_ORIGIN = '*'
+const DATABASE_URL =
+  'mongodb://ec2-3-140-191-80.us-east-2.compute.amazonaws.com'
 
 const app = express()
 
 // Database
-mongoose.connect('mongodb://localhost/thePeterssonCollection', {
+mongoose.connect(`${DATABASE_URL}/thePeterssonCollection`, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
