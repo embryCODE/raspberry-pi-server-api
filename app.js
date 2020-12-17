@@ -10,7 +10,7 @@ const ALLOWED_ORIGIN = '*'
 const DATABASE_URL =
   'mongodb://ec2-3-140-191-80.us-east-2.compute.amazonaws.com'
 const DATABASE_USER = 'mason'
-const DATABASE_PASS = '@UaFy9T3Y8hD.aY@AVE3a9Uk' // TODO: Not this
+const DATABASE_PASS = process.env.DB_PASS
 
 const app = express()
 
