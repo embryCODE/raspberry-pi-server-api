@@ -13,7 +13,7 @@ ssh $HOST << EOF
 
   printf "\nInstalling dependencies...\n"
   NODE_ENV=production
-  npm i
+  yarn
 
   printf "Reloading server...\n"
   pm2 reload raspberry-pi-server-api
