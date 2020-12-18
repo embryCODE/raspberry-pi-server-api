@@ -2,7 +2,6 @@ const express = require('express')
 const cookieParser = require('cookie-parser')
 const logger = require('morgan')
 const mongoose = require('mongoose')
-var upload = require('multer')()
 const apiRouter = require('./routes/api')
 
 // Constants
@@ -31,7 +30,6 @@ db.once('open', function () {
 app.use(logger('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
-app.use(upload.array())
 app.use(cookieParser())
 app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Origin', ALLOWED_ORIGIN)
