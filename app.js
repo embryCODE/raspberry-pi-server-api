@@ -1,15 +1,16 @@
+require('dotenv').config()
 const express = require('express')
 const cookieParser = require('cookie-parser')
 const logger = require('morgan')
 const mongoose = require('mongoose')
+var upload = require('multer')()
 const apiRouter = require('./routes/api')
 
 // Constants
 // TODO: Lock this down to localhost and dev.embrycode.com
 const ALLOWED_ORIGIN = '*'
-const DATABASE_URL =
-  'mongodb://ec2-3-140-191-80.us-east-2.compute.amazonaws.com'
-const DATABASE_USER = 'mason'
+const DATABASE_URL = process.env.DB_URL
+const DATABASE_USER = process.env.DB_USER
 const DATABASE_PASS = process.env.DB_PASS
 
 const app = express()
@@ -31,6 +32,7 @@ db.once('open', function () {
 app.use(logger('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
+app.use(upload.array())
 app.use(cookieParser())
 app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Origin', ALLOWED_ORIGIN)
