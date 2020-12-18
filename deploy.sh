@@ -2,7 +2,7 @@
 
 HOST=pi@67.177.189.251
 
-printf "Logging into host...\n"
+printf "Logging into host...\n\n"
 
 ssh $HOST << EOF
   printf "\nLogged into host.\n"
