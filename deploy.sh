@@ -8,7 +8,7 @@ ssh $HOST << EOF
   printf "\nLogged into host.\n"
 
   printf "\nPulling from GitHub...\n"
-  cd /var/www/dev.embrycode.com/backend
+  cd /home/code/raspberry-pi-server-api
   git pull
 
   printf "\nInstalling dependencies...\n"
