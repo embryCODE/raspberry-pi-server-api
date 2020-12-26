@@ -5,7 +5,7 @@ const mongoose = require('mongoose')
 const apiRouter = require('./routes/api')
 
 // Constants
-// TODO: Lock this down to localhost and dev.embrycode.com
+// TODO: Lock this down to localhost and home.dev.embrycode.com
 const ALLOWED_ORIGIN = '*'
 const DATABASE_URL = process.env.DB_URL
 const DATABASE_USER = process.env.DB_USER

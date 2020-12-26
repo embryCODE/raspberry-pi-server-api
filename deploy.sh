@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-HOST=pi@67.177.189.251
+HOST=raspi
 
 printf "Logging into host...\n"
 
